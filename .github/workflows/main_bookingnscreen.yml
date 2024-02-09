@@ -79,7 +79,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
       - name: Set up Node.js version
         uses: actions/setup-node@v3
@@ -90,6 +91,11 @@ jobs:
         run: |
           npm install
           npm run build --if-present
+          npm install --save @nestjs/core @nestjs/common @nestjs/platform-express @nestjs/mapped-types
+          npm install --save @nestjs/cli
+          npm install -g @nestjs/cli
+          npm install --save class-validator class-transformer
+          npm install --save typeorm mssql axios
 
       - name: Zip artifact for deployment
         run: zip -r release.zip ./* -x "*.git*" -x "*node_modules*" -x "*.vscode*" -x "*.github*"
@@ -131,7 +137,9 @@ jobs:
           npm install --only=production
 
       - name: Restart Azure Web App
-        run: az webapp restart --name 'bookingnscreen' --resource-group 'bookingcrud'
+        run: az webapp restart --name 'bookingnscreen' --resource-group 'your-resource-group-name'
 
       - name: Configure Swagger
-        run: npm install --save @nestjs/swagger
+        run: |
+          npm install --save @nestjs/swagger
+
