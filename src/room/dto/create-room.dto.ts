@@ -1,0 +1,9 @@
+import { IsNumber } from "class-validator";
+
+export class CreateRoomDto{
+    @IsNumber()
+    number: number;
+
+    @IsNumber()
+    capacity: number;
+}
