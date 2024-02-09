@@ -1,1 +1,1 @@
-export const apiUrl = 'bookingnscreen.azurewebsites.net'
+export const apiUrl = 'https://localhost:3000/'
