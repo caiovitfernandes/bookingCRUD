@@ -4,7 +4,9 @@ import { ResultDto } from 'src/dto/result.dto';
 import { CreatePersonDto } from './dto/create-person.dto';
 import { Person } from './entities/person.entity';
 import { UpdatePersonDto } from './dto/update-person.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('persons')
 @Controller('persons')
 export class PersonController {
     constructor(private readonly personService : PersonService){}

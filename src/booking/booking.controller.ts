@@ -4,7 +4,9 @@ import { FindBookingByDateDto } from './dto/find-booking-by-date.dto';
 import { Booking } from './entities/booking.entity';
 import { CreateBookingDto } from './dto/create-booking.dto';
 import { ResultDto } from 'src/dto/result.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('bookings')
 @Controller('bookings')
 export class BookingController {
     constructor(private readonly bookingService : BookingService){}

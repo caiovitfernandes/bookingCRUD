@@ -5,7 +5,9 @@ import { ResultDto } from 'src/dto/result.dto';
 import { Room } from './entities/room.entity';
 import { AvaliableRoomDto } from './dto/avaliable-room.dto';
 import { UpdateRoomDto } from './dto/update-room.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('rooms')
 @Controller('rooms')
 export class RoomController {
     constructor(private readonly roomService : RoomService){}
